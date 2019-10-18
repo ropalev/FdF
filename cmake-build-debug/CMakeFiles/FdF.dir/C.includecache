@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/lvania/42/FdF/fdf.h
+stdlib.h
+-
+
+/Users/lvania/42/FdF/main.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+minilibx_macos/mlx.h
+/Users/lvania/42/FdF/minilibx_macos/mlx.h
+stdio.h
+-
+
+/Users/lvania/42/FdF/minilibx_macos/mlx.h
+
