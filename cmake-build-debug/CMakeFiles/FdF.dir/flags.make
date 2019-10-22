@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/lvania/42/FdF/. -I/Users/lvania/42/FdF/minilibx_macos 
+C_INCLUDES = -I/Users/lvania/42/FdF/. -I/Users/lvania/42/FdF/libft -I/Users/lvania/42/FdF/minilibx_macos 
 

@@ -17,7 +17,12 @@
 #include "minilibx_macos/mlx.h"
 #include <stdio.h>
 #include <math.h>
+#include "libft/libft.h"
 
+#include <OpenGL/glext.h>
+
+#define WINWIDTH 1250
+#define WINHEIGHT 1920
 typedef struct t_mouse
 {
     int x;
@@ -30,9 +35,20 @@ typedef struct t_data
     void    *mlx_ptr;
 }              s_data;
 
+typedef struct t_point
+{
+    int         x;
+    int         y;
+    int         z;
+    int         x_p;
+    int         y_p;
+    int         z_p;
+    void        *next;
+}               s_point;
 
 int     plot_line_low(int start_x, int start_y, int end_x, int end_y, void *param);
 int     plot_line_high(int start_x, int start_y, int end_x, int end_y, void *param);
 int     plotLine(int start_x, int start_y, int end_x, int end_y, void *param);
+s_point *create_point(int x, int y, int z);
 
 #endif

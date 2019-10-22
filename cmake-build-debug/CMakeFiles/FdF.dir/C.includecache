@@ -6,17 +6,41 @@
 
 #IncludeRegexTransform: 
 
+/Users/lvania/42/FdF/draw_line.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+
 /Users/lvania/42/FdF/fdf.h
 stdlib.h
 -
-
-/Users/lvania/42/FdF/main.c
-fdf.h
-/Users/lvania/42/FdF/fdf.h
 minilibx_macos/mlx.h
 /Users/lvania/42/FdF/minilibx_macos/mlx.h
 stdio.h
 -
+math.h
+-
+libft/libft.h
+/Users/lvania/42/FdF/libft/libft.h
+OpenGL/glext.h
+-
+
+/Users/lvania/42/FdF/figure_rotation.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+
+/Users/lvania/42/FdF/libft/libft.h
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
 
 /Users/lvania/42/FdF/minilibx_macos/mlx.h
+
+/Users/lvania/42/FdF/parser.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+fcntl.h
+-
 
