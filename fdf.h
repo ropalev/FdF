@@ -19,8 +19,6 @@
 #include <math.h>
 #include "libft/libft.h"
 
-#include <OpenGL/glext.h>
-
 #define WINWIDTH 1250
 #define WINHEIGHT 1920
 typedef struct t_mouse
@@ -46,9 +44,20 @@ typedef struct t_point
     void        *next;
 }               s_point;
 
+typedef struct t_map
+{
+    double scale;
+    double x_center;
+    double y_center;
+    double x_shift_to_zero;
+    double y_shift_to_zero;
+}               s_map;
+
 int     plot_line_low(int start_x, int start_y, int end_x, int end_y, void *param);
 int     plot_line_high(int start_x, int start_y, int end_x, int end_y, void *param);
 int     plotLine(int start_x, int start_y, int end_x, int end_y, void *param);
 s_point *create_point(int x, int y, int z);
+void	list_push_back(s_point **begin_list, int x, int y, int z);
+s_point     *parser(char *file);
 
 #endif

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/lvania/42/FdF/coord.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+
 /Users/lvania/42/FdF/draw_line.c
 fdf.h
 /Users/lvania/42/FdF/fdf.h
@@ -21,10 +25,12 @@ math.h
 -
 libft/libft.h
 /Users/lvania/42/FdF/libft/libft.h
-OpenGL/glext.h
--
 
 /Users/lvania/42/FdF/figure_rotation.c
+fdf.h
+/Users/lvania/42/FdF/fdf.h
+
+/Users/lvania/42/FdF/figure_zoom.c
 fdf.h
 /Users/lvania/42/FdF/fdf.h
 
@@ -35,6 +41,12 @@ string.h
 -
 unistd.h
 -
+
+/Users/lvania/42/FdF/main.c
+fcntl.h
+-
+fdf.h
+/Users/lvania/42/FdF/fdf.h
 
 /Users/lvania/42/FdF/minilibx_macos/mlx.h
 

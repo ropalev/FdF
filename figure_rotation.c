@@ -13,6 +13,7 @@ int     x_rotation(s_point *point, double angle)
     z = (double)point->z;
     point->y = y * cos(angle) + z * sin(angle);
     point->z = -y * sin(angle) + z * cos(angle);
+    return (0);
 }
 
 int     y_rotation(s_point *point, double angle)
@@ -24,6 +25,7 @@ int     y_rotation(s_point *point, double angle)
     z = (double)point->z;
     point->x = x * cos(angle) + z * sin(angle);
     point->z = -x * sin(angle) + z * cos(angle);
+    return (0);
 }
 
 int     z_rotation(s_point *point, double angle)
@@ -35,6 +37,7 @@ int     z_rotation(s_point *point, double angle)
     x = (double)point->x;
     point->x = x * cos(angle) - y * sin(angle);
     point->y = x * sin(angle) + y * cos(angle);
+    return (0);
 }
 
 int     figure_rotation(char axis,s_point *point, double angle)

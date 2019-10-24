@@ -1,3 +1,4 @@
+#include <fcntl.h>
 #include "fdf.h"
 
 int   mouse_action(int button, int x, int y, void *param)
@@ -6,18 +7,13 @@ int   mouse_action(int button, int x, int y, void *param)
         plotLine(WINHEIGHT/2,WINWIDTH/2, x, y, param);
     if (button == 2)
         exit(0);
+
     return (0);
 }
 
 int     keyboard_action(int keycode, void *param)
 {
     if (keycode == 0)
-        exit(0);
-    if (keycode == 1)
-        exit(0);
-    if (keycode == 2)
-        exit(0);
-    if (keycode == 13)
         exit(0);
     return (0);
 }
@@ -28,19 +24,41 @@ int   plot(int x, int y, void *param)
     return (0);
 }
 
-int     main()
+int     main(int argc, char **argv)
 {
     s_data  data;
 	s_mouse mouse;
-	s_point *point, *point_c;
+	s_point *head;
+    int y,fd,x;
+    char *line;
+    char **s;
 
-    data.mlx_ptr= mlx_init();
-    data.win_ptr = mlx_new_window(data.mlx_ptr, WINHEIGHT, WINWIDTH, "Maybe?!?!?!");
+    y = 0;
+    fd = open(argv[1], O_RDONLY);
+    while ((get_next_line(fd, &line)) > 0) {
+        s = ft_strsplit(line, ' ');
+        x = 0;
+        while(*s) {
+            printf("%d", ft_atoi(*s));
+            list_push_back(&head, x,y, ft_atoi(*s));
+            printf(" ");
+            s++;
+            x++;
+        }
+        y++;
+        printf("\n");
+    }
+    close(fd);
+	//point = parser(argv[1]);
+    /*data.mlx_ptr= mlx_init();
     mlx_pixel_put(data.mlx_ptr, data.win_ptr, WINHEIGHT/2,WINWIDTH/2, 0xFFFFFF);
-	//mlx_string_put(data.mlx_ptr, data.win_ptr, 300, 300, 0xFFFFFF, "I'm FUCKING GENIOUS");
 	mlx_hook(data.win_ptr, 4, 4, &mouse_action, (void *)(&data));
-    //draw_matrix(data);
     mlx_hook(data.win_ptr, 6, 6, &plot, (void *)(&data));
     mlx_hook(data.win_ptr, 2, 2, &keyboard_action, (void *)(&data));
-    mlx_loop(data.mlx_ptr);
+    mlx_loop(data.mlx_ptr);*/
+    while (head)
+    {
+        printf("%d\t", head->z);
+        head = head->next;
+    }
 }

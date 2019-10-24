@@ -4,27 +4,31 @@
 #include "fdf.h"
 #include <fcntl.h>
 
-int     main(int args, char **argv)
+s_point     *parser(char *file)
 {
     int     fd;
     char    *line;
     char    **s;
+    int     x;
+    int     y;
+    s_point *head;
 
-    fd = open(argv[1],O_RDONLY);
-    while (get_next_line(fd, &line)) {
-        printf("%s", line);
+
+    y = 0;
+    fd = open(file, O_RDONLY);
+    while ((get_next_line(fd, &line)) > 0) {
         s = ft_strsplit(line, ' ');
+        x = 0;
         while(*s) {
-            printf("%s", *s);
+            printf("%d", ft_atoi(*s));
+            list_push_back(&head, x,y, ft_atoi(*s));
+            printf(" ");
             s++;
+            x++;
         }
-        //ft_strsplit(line, ' ');
+        y++;
         printf("\n");
     }
-    //free(line);
     close(fd);
-    get_next_line(fd,&line);
-    get_next_line(fd,&line);
-    //free(line);
-    return (0);
+    return (head);
 }

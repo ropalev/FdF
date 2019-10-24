@@ -4,8 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/lvania/42/FdF/coord.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/coord.c.o"
   "/Users/lvania/42/FdF/draw_line.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/draw_line.c.o"
   "/Users/lvania/42/FdF/figure_rotation.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/figure_rotation.c.o"
+  "/Users/lvania/42/FdF/figure_zoom.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/figure_zoom.c.o"
   "/Users/lvania/42/FdF/libft/ft_atoi.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/ft_atoi.c.o"
   "/Users/lvania/42/FdF/libft/ft_bzero.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/ft_bzero.c.o"
   "/Users/lvania/42/FdF/libft/ft_isalnum.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/ft_isalnum.c.o"
@@ -70,6 +72,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lvania/42/FdF/libft/ft_tolower.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/ft_tolower.c.o"
   "/Users/lvania/42/FdF/libft/ft_toupper.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/ft_toupper.c.o"
   "/Users/lvania/42/FdF/libft/get_next_line.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/libft/get_next_line.c.o"
+  "/Users/lvania/42/FdF/main.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/main.c.o"
   "/Users/lvania/42/FdF/minilibx_macos/font.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/minilibx_macos/font.c.o"
   "/Users/lvania/42/FdF/minilibx_macos/mlx_init_loop.m" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/minilibx_macos/mlx_init_loop.m.o"
   "/Users/lvania/42/FdF/minilibx_macos/mlx_int_str_to_wordtab.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/minilibx_macos/mlx_int_str_to_wordtab.c.o"

@@ -6,8 +6,6 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 include_directories(libft)
 include_directories(minilibx_macos)
-target_compile_options(-lmlx)
-
 
 add_executable(FdF
         libft/ft_atoi.c
@@ -86,16 +84,10 @@ add_executable(FdF
         minilibx_macos/mlx_rgb.c
         minilibx_macos/mlx_shaders.c
         minilibx_macos/mlx_xpm.c
- #       coord.c
+        coord.c
         draw_line.c
         fdf.h
-#        main.c
-        parser.c
-        figure_rotation.c)
-
-find_package(OpenGL REQUIRED)
-find_package(OpenGL REQUIRED)
-#find_package(GLUT REQUIRED)
-include_directories( ${OPENGL_INCLUDE_DIRS})
-
-target_link_libraries(FdF ${OPENGL_LIBRARIES})
+        figure_rotation.c
+        figure_zoom.c
+        main.c
+        parser.c)
