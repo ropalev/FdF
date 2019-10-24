@@ -16,24 +16,10 @@ int     keyboard_action(int keycode, void *param)
 
     int x = 0;
     int y = 0;
-    s_point ***points;
 
-    points = (s_point***)param
     if (keycode == 0)
-        while (x < 10)
-        {
-            y = 0;
-            while (y < 10)
-            {
-                printf("%d\t %d", points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2);
-                if ( x + 1 < 10)
-                    plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x + 1][y]->x * 30 + WINHEIGHT/2, points[x + 1][y]->y * 30 + WINWIDTH/2,(void *)(&data));
-                if (y + 1 < 10)
-                    plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x][y + 1]->x * 30 + WINHEIGHT/2, points[x][y + 1]->y * 30 + WINWIDTH/2,(void *)(&data));
-                y++;
-            }
-            x++;
-        }
+        figure_rotation(x,0.5, param);
+
 
     return (0);
 }
@@ -71,13 +57,15 @@ int     main(int argc, char **argv)
     }
     close(fd);
 
+    data.matrix = points;
     data.mlx_ptr= mlx_init();
     data.win_ptr = mlx_new_window(data.mlx_ptr, WINHEIGHT, WINWIDTH, "Window");
-	mlx_hook(data.win_ptr, 4, 4, &mouse_action, (void *)(&data));
+    mlx_hook(data.win_ptr, 4, 4, &mouse_action, (void *)(&data));
     mlx_hook(data.win_ptr, 6, 6, &plot, (void *)(&data));
     mlx_hook(data.win_ptr, 2, 2, &keyboard_action, (void *)(&data));
 
-    y = 0;
+    map_draw((void *)(&data));
+    /*y = 0;
     x = 0;
     while (x < 10)
     {
@@ -85,13 +73,15 @@ int     main(int argc, char **argv)
         while (y < 10)
         {
             printf("%d\t %d", points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2);
-            if ( x + 1 < 10)
+            if ( x + 1 < 10) {
                 plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x + 1][y]->x * 30 + WINHEIGHT/2, points[x + 1][y]->y * 30 + WINWIDTH/2,(void *)(&data));
-            if (y + 1 < 10)
+            }
+            if (y + 1 < 10) {
                 plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x][y + 1]->x * 30 + WINHEIGHT/2, points[x][y + 1]->y * 30 + WINWIDTH/2,(void *)(&data));
+            }
             y++;
         }
         x++;
-    }
+    }*/
     mlx_loop(data.mlx_ptr);
 }

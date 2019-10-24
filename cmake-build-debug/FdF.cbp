@@ -299,6 +299,9 @@
 		<Unit filename="/Users/lvania/42/FdF/main.c">
 			<Option target="FdF"/>
 		</Unit>
+		<Unit filename="/Users/lvania/42/FdF/map.c">
+			<Option target="FdF"/>
+		</Unit>
 		<Unit filename="/Users/lvania/42/FdF/minilibx_macos/font.c">
 			<Option target="FdF"/>
 		</Unit>

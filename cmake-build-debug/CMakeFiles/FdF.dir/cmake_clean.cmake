@@ -77,6 +77,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FdF.dir/figure_zoom.c.o"
   "CMakeFiles/FdF.dir/main.c.o"
   "CMakeFiles/FdF.dir/parser.c.o"
+  "CMakeFiles/FdF.dir/map.c.o"
   "FdF.pdb"
   "FdF"
 )

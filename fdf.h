@@ -30,22 +30,23 @@ typedef struct t_mouse
     int y;
 }               s_mouse;
 
-typedef struct t_data
-{
-    void    *win_ptr;
-    void    *mlx_ptr;
-}              s_data;
-
 typedef struct t_point
 {
-    int         x;
-    int         y;
-    int         z;
+    double        x;
+    double         y;
+    double         z;
     int         x_p;
     int         y_p;
     int         z_p;
     void        *next;
 }               s_point;
+
+typedef struct t_data
+{
+    void    *win_ptr;
+    void    *mlx_ptr;
+    s_point ***matrix;
+}              s_data;
 
 typedef struct t_map
 {
@@ -64,10 +65,11 @@ void	list_push_back(s_point **begin_list, int x, int y, int z);
 s_point     *parser(char *file);
 s_point *next_x_point(s_point *point);
 s_point ***matrix(void);
-int     figure_rotation(char axis,s_point *point, double angle);
+int     figure_rotation(char axis, double angle, void *param);
 int     x_rotation(s_point *point, double angle);
 int     y_rotation(s_point *point, double angle);
 int     z_rotation(s_point *point, double angle);
+void    map_draw(void *param);
 
 
 

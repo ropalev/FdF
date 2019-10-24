@@ -40,28 +40,47 @@ int     z_rotation(s_point *point, double angle)
     return (0);
 }
 
-int     figure_rotation(char axis,s_point *point, double angle)
+int     figure_rotation(char axis, double angle, void *param)
 {
+    int x;
+    int y;
+    s_data *data;
+    s_point ***points;
+
+    data = (s_data *)param;
+    points = data->matrix;
     if (axis == 'x') {
-        while (point) {
-            x_rotation(point, angle);
-            point = point->next;
+        while (x < 10)
+        {
+            y = 0;
+            while (y < 10)
+            {
+                x_rotation(points[x][y], angle);
+                y++;
+            }
+            x++;
         }
     }
     else if (axis == 'y')
     {
-        while (point)
-        {
-            y_rotation(point, angle);
-            point = point->next;
+        while (x < 10) {
+            y = 0;
+            while (y < 10) {
+                y_rotation(points[x][y], angle);
+                y++;
+            }
+            x++;
         }
     }
     else if (axis == 'z')
     {
-        while (point)
-        {
-            z_rotation(point, angle);
-            point = point->next;
+        while (x < 10) {
+            y = 0;
+            while (y < 10) {
+                z_rotation(points[x][y], angle);
+                y++;
+            }
+            x++;
         }
     }
     return(0);
