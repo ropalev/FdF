@@ -13,8 +13,28 @@ int   mouse_action(int button, int x, int y, void *param)
 
 int     keyboard_action(int keycode, void *param)
 {
+
+    int x = 0;
+    int y = 0;
+    s_point ***points;
+
+    points = (s_point***)param
     if (keycode == 0)
-        exit(0);
+        while (x < 10)
+        {
+            y = 0;
+            while (y < 10)
+            {
+                printf("%d\t %d", points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2);
+                if ( x + 1 < 10)
+                    plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x + 1][y]->x * 30 + WINHEIGHT/2, points[x + 1][y]->y * 30 + WINWIDTH/2,(void *)(&data));
+                if (y + 1 < 10)
+                    plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x][y + 1]->x * 30 + WINHEIGHT/2, points[x][y + 1]->y * 30 + WINWIDTH/2,(void *)(&data));
+                y++;
+            }
+            x++;
+        }
+
     return (0);
 }
 int   plot(int x, int y, void *param)
@@ -29,36 +49,49 @@ int     main(int argc, char **argv)
     s_data  data;
 	s_mouse mouse;
 	s_point *head;
+	s_point *next;
+	s_point *next_x;
     int y,fd,x;
     char *line;
     char **s;
+    s_point ***points;
 
+    points = matrix();
     y = 0;
     fd = open(argv[1], O_RDONLY);
     while ((get_next_line(fd, &line)) > 0) {
         s = ft_strsplit(line, ' ');
         x = 0;
         while(*s) {
-            printf("%d", ft_atoi(*s));
-            list_push_back(&head, x,y, ft_atoi(*s));
-            printf(" ");
+            points[y][x] = create_point(x, y, ft_atoi(*s));
             s++;
             x++;
         }
         y++;
-        printf("\n");
     }
     close(fd);
-	//point = parser(argv[1]);
-    /*data.mlx_ptr= mlx_init();
-    mlx_pixel_put(data.mlx_ptr, data.win_ptr, WINHEIGHT/2,WINWIDTH/2, 0xFFFFFF);
+
+    data.mlx_ptr= mlx_init();
+    data.win_ptr = mlx_new_window(data.mlx_ptr, WINHEIGHT, WINWIDTH, "Window");
 	mlx_hook(data.win_ptr, 4, 4, &mouse_action, (void *)(&data));
     mlx_hook(data.win_ptr, 6, 6, &plot, (void *)(&data));
     mlx_hook(data.win_ptr, 2, 2, &keyboard_action, (void *)(&data));
-    mlx_loop(data.mlx_ptr);*/
-    while (head)
+
+    y = 0;
+    x = 0;
+    while (x < 10)
     {
-        printf("%d\t", head->z);
-        head = head->next;
+        y = 0;
+        while (y < 10)
+        {
+            printf("%d\t %d", points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2);
+            if ( x + 1 < 10)
+                plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x + 1][y]->x * 30 + WINHEIGHT/2, points[x + 1][y]->y * 30 + WINWIDTH/2,(void *)(&data));
+            if (y + 1 < 10)
+                plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2, points[x][y + 1]->x * 30 + WINHEIGHT/2, points[x][y + 1]->y * 30 + WINWIDTH/2,(void *)(&data));
+            y++;
+        }
+        x++;
     }
+    mlx_loop(data.mlx_ptr);
 }

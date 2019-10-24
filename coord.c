@@ -19,17 +19,18 @@ s_point *create_point(int x, int y, int z)
     return (point);
 }
 
-void	list_push_back(s_point **begin_list, int x, int y, int z)
+s_point ***matrix(void)
 {
-    s_point *last;
+    s_point ***points;
+    s_point *point;
+    int i;
 
-    last = *begin_list;
-    if (!last)
-    {
-        *begin_list = create_point(x, y, z);
-        return ;
+
+    i = 0;
+    points = (s_point ***)malloc(sizeof(s_point**) * 10);
+    while (i < 10) {
+        points[i] = (s_point **) malloc(sizeof(s_point*) * 10);
+        i++;
     }
-    while (last->next)
-        last = last->next;
-    last->next = create_point(x, y, z);
+    return (points);
 }

@@ -21,6 +21,9 @@
 
 #define WINWIDTH 1250
 #define WINHEIGHT 1920
+#define ROW_NUM 10
+#define COL_NUM 10
+
 typedef struct t_mouse
 {
     int x;
@@ -59,5 +62,13 @@ int     plotLine(int start_x, int start_y, int end_x, int end_y, void *param);
 s_point *create_point(int x, int y, int z);
 void	list_push_back(s_point **begin_list, int x, int y, int z);
 s_point     *parser(char *file);
+s_point *next_x_point(s_point *point);
+s_point ***matrix(void);
+int     figure_rotation(char axis,s_point *point, double angle);
+int     x_rotation(s_point *point, double angle);
+int     y_rotation(s_point *point, double angle);
+int     z_rotation(s_point *point, double angle);
+
+
 
 #endif
