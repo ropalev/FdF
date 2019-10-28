@@ -11,6 +11,7 @@ int     x_rotation(s_point *point, double angle)
 
     y = (double)point->y;
     z = (double)point->z;
+
     point->y = y * cos(angle) + z * sin(angle);
     point->z = -y * sin(angle) + z * cos(angle);
     return (0);
@@ -49,6 +50,8 @@ int     figure_rotation(char axis, double angle, void *param)
 
     data = (s_data *)param;
     points = data->matrix;
+
+    x = 0;
     if (axis == 'x') {
         while (x < 10)
         {
@@ -83,5 +86,7 @@ int     figure_rotation(char axis, double angle, void *param)
             x++;
         }
     }
+    mlx_clear_window(data->mlx_ptr, data->win_ptr);
+    map_draw(param);
     return(0);
 }

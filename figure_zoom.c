@@ -4,19 +4,29 @@
 
 #include "fdf.h"
 
-
-int     point_scale(s_point *point, double scale)
+int     figure_zoom(double scale, void *param)
 {
-    point->x *= scale;
-    point->y *= scale;
-    point->z *= scale;
-    point++;
-    return (0);
-}
+    int x;
+    int y;
+    s_data *data;
+    s_point ***points;
 
-int     figure_zoom(s_point *point, double scale)
-{
-    while (point)
-        point_scale(point,scale);
+    data = (s_data *)param;
+    points = data->matrix;
+
+    x = 0;
+    while (x < 10)
+    {
+        y = 0;
+        while (y < 10)
+        {
+            points[x][y]->x *= scale;
+            points[x][y]->y *= scale;
+            y++;
+        }
+        x++;
+    }
+    mlx_clear_window(data->mlx_ptr, data->win_ptr);
+    map_draw(param);
     return (0);
 }
