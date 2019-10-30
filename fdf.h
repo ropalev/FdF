@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "libft/libft.h"
+#include <fcntl.h>
 
 #define WINWIDTH 1000
 #define WINHEIGHT 1000
@@ -40,7 +41,7 @@ typedef struct      t_point
     int             x_p;
     int             y_p;
     int             z_p;
-    char            *color;
+    int             color;
 }                   s_point;
 
 typedef struct      t_data
@@ -48,6 +49,8 @@ typedef struct      t_data
     void            *win_ptr;
     void            *mlx_ptr;
     s_point         ***matrix;
+    int             width;
+    int             height;
 }                   s_data;
 
 typedef struct      t_map
@@ -64,9 +67,7 @@ int     plot_line_high(int start_x, int start_y, int end_x, int end_y, void *par
 int     plotLine(int start_x, int start_y, int end_x, int end_y, void *param);
 s_point *create_point(int x, int y, int z);
 void	list_push_back(s_point **begin_list, int x, int y, int z);
-s_point     *parser(char *file);
 s_point *next_x_point(s_point *point);
-s_point ***matrix(void);
 int     figure_rotation(char axis, double angle, void *param);
 int     figure_zoom(double scale, void *param);
 int     x_rotation(s_point *point, double angle);
@@ -74,6 +75,11 @@ int     y_rotation(s_point *point, double angle);
 int     z_rotation(s_point *point, double angle);
 void    map_draw(void *param);
 void map_iso(void *param);
+int     figure_height(double scale, void *param);
+
+s_point ***matrix(int width, int height);
+int     check_map(char *file_name, s_data *data);
+void    parser(char *file,s_data *data);
 
 
 

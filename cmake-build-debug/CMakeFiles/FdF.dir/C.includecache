@@ -10,10 +10,6 @@
 fdf.h
 /Users/lvania/42/FdF/fdf.h
 
-/Users/lvania/42/FdF/draw_line.c
-fdf.h
-/Users/lvania/42/FdF/fdf.h
-
 /Users/lvania/42/FdF/fdf.h
 stdlib.h
 -
@@ -25,6 +21,8 @@ math.h
 -
 libft/libft.h
 /Users/lvania/42/FdF/libft/libft.h
+fcntl.h
+-
 
 /Users/lvania/42/FdF/figure_rotation.c
 fdf.h
@@ -48,11 +46,9 @@ fcntl.h
 fdf.h
 /Users/lvania/42/FdF/fdf.h
 
-/Users/lvania/42/FdF/minilibx_macos/mlx.h
-
-/Users/lvania/42/FdF/parser.c
+/Users/lvania/42/FdF/map.c
 fdf.h
 /Users/lvania/42/FdF/fdf.h
-fcntl.h
--
+
+/Users/lvania/42/FdF/minilibx_macos/mlx.h
 

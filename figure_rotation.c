@@ -51,39 +51,18 @@ int     figure_rotation(char axis, double angle, void *param)
     data = (s_data *)param;
     points = data->matrix;
 
-    x = 0;
-    if (axis == 'x') {
-        while (x < 10)
+    x = -1;
+    while (++x < data->height)
+    {
+        y = -1;
+        while (++y < data->width)
         {
-            y = 0;
-            while (y < 10)
-            {
+            if (axis == 'x')
                 x_rotation(points[x][y], angle);
-                y++;
-            }
-            x++;
-        }
-    }
-    else if (axis == 'y')
-    {
-        while (x < 10) {
-            y = 0;
-            while (y < 10) {
+            else if (axis == 'y')
                 y_rotation(points[x][y], angle);
-                y++;
-            }
-            x++;
-        }
-    }
-    else if (axis == 'z')
-    {
-        while (x < 10) {
-            y = 0;
-            while (y < 10) {
+            else if (axis == 'z')
                 z_rotation(points[x][y], angle);
-                y++;
-            }
-            x++;
         }
     }
     mlx_clear_window(data->mlx_ptr, data->win_ptr);
