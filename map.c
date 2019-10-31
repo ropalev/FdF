@@ -1,7 +1,3 @@
-//
-// Created by Leto Vania on 24/10/2019.
-//
-
 #include "fdf.h"
 
 void    map_draw(void *param)
@@ -19,13 +15,17 @@ void    map_draw(void *param)
         y = -1;
         while (++y < data->width)
         {
-            if (x + 1 < data->height) {
-                plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2,
-                        points[x + 1][y]->x * 30 + WINHEIGHT/2, points[x + 1][y]->y * 30 + WINWIDTH/2, param);
+            if (x + 1 < data->height)
+            {
+            	plot_line(points[x][y]->x * data->par_scale + WINHEIGHT/2,
+            			points[x][y]->y * data->par_scale + WINWIDTH/2,
+                        points[x + 1][y]->x * data->par_scale + WINHEIGHT/2, points[x + 1][y]->y * data->par_scale + WINWIDTH/2, param);
             }
-            if (y + 1 < data->width) {
-                plotLine(points[x][y]->x * 30 + WINHEIGHT/2, points[x][y]->y * 30 + WINWIDTH/2,
-                        points[x][y + 1]->x * 30 + WINHEIGHT/2, points[x][y + 1]->y * 30 + WINWIDTH/2, param);
+            if (y + 1 < data->width)
+            {
+                plot_line(points[x][y]->x * data->par_scale + WINHEIGHT/2,
+                		points[x][y]->y * data->par_scale + WINWIDTH/2,
+                        points[x][y + 1]->x * data->par_scale + WINHEIGHT/2, points[x][y + 1]->y * data->par_scale + WINWIDTH/2, param);
             }
         }
     }

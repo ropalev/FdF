@@ -83,6 +83,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lvania/42/FdF/minilibx_macos/mlx_shaders.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/minilibx_macos/mlx_shaders.c.o"
   "/Users/lvania/42/FdF/minilibx_macos/mlx_xpm.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/minilibx_macos/mlx_xpm.c.o"
   "/Users/lvania/42/FdF/parser.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/parser.c.o"
+  "/Users/lvania/42/FdF/utils.c" "/Users/lvania/42/FdF/cmake-build-debug/CMakeFiles/FdF.dir/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

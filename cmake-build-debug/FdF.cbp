@@ -338,6 +338,9 @@
 		<Unit filename="/Users/lvania/42/FdF/parser.c">
 			<Option target="FdF"/>
 		</Unit>
+		<Unit filename="/Users/lvania/42/FdF/utils.c">
+			<Option target="FdF"/>
+		</Unit>
 		<Unit filename="/Users/lvania/42/FdF/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

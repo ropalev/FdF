@@ -78,6 +78,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_shaders.c.o"
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_xpm.c.o"
   "CMakeFiles/FdF.dir/parser.c.o"
+  "CMakeFiles/FdF.dir/utils.c.o"
   "FdF"
   "FdF.pdb"
 )

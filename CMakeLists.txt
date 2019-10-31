@@ -90,4 +90,4 @@ add_executable(FdF
         figure_rotation.c
         figure_zoom.c
         main.c
-        parser.c map.c)
+        parser.c map.c utils.c)

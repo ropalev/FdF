@@ -21,11 +21,7 @@
 #include <fcntl.h>
 
 #define WINWIDTH 1000
-#define WINHEIGHT 1000
-#define ROW_NUM 10
-#define COL_NUM 10
-#define MATRIX_SHIFT_X 5;
-#define MATRIX_SHIFT_Y 5;
+#define WINHEIGHT 2000
 
 typedef struct t_mouse
 {
@@ -38,11 +34,24 @@ typedef struct      t_point
     double          x;
     double          y;
     double          z;
-    int             x_p;
-    int             y_p;
-    int             z_p;
+    double          color_coef;
     int             color;
 }                   s_point;
+
+typedef  struct		s_line
+{
+	int dx;
+	int dy;
+	int D;
+	int yi;
+	int xi;
+	int x;
+	int y;
+	int start_x;
+	int start_y;
+	int end_x;
+	int end_y;
+}					t_line;
 
 typedef struct      t_data
 {
@@ -51,20 +60,17 @@ typedef struct      t_data
     s_point         ***matrix;
     int             width;
     int             height;
+    int             iso_scale;
+    int             par_scale;
+    int             z_max;
+    int             z_min;
+    int             color;
 }                   s_data;
 
-typedef struct      t_map
-{
-    double scale;
-    double x_center;
-    double y_center;
-    double x_shift_to_zero;
-    double y_shift_to_zero;
-}               s_map;
 
 int     plot_line_low(int start_x, int start_y, int end_x, int end_y, void *param);
 int     plot_line_high(int start_x, int start_y, int end_x, int end_y, void *param);
-int     plotLine(int start_x, int start_y, int end_x, int end_y, void *param);
+int     plot_line(int start_x, int start_y, int end_x, int end_y, void *param);
 s_point *create_point(int x, int y, int z);
 void	list_push_back(s_point **begin_list, int x, int y, int z);
 s_point *next_x_point(s_point *point);
@@ -74,12 +80,16 @@ int     x_rotation(s_point *point, double angle);
 int     y_rotation(s_point *point, double angle);
 int     z_rotation(s_point *point, double angle);
 void    map_draw(void *param);
-void map_iso(void *param);
+void    map_iso(void *param);
 int     figure_height(double scale, void *param);
 
 s_point ***matrix(int width, int height);
 int     check_map(char *file_name, s_data *data);
 void    parser(char *file,s_data *data);
+int     check_maxyz(s_data *data);
+int     change_color(s_data *data);
+void init_line_y(t_line *line, int end_x, int start_x, int end_y, int start_y);
+void init_line_x(t_line *line, int end_x, int start_x, int end_y, int start_y);
 
 
 
