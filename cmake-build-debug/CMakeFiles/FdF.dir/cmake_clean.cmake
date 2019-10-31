@@ -1,8 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/FdF.dir/coord.c.o"
-  "CMakeFiles/FdF.dir/draw_line.c.o"
-  "CMakeFiles/FdF.dir/figure_rotation.c.o"
-  "CMakeFiles/FdF.dir/figure_zoom.c.o"
   "CMakeFiles/FdF.dir/libft/ft_atoi.c.o"
   "CMakeFiles/FdF.dir/libft/ft_bzero.c.o"
   "CMakeFiles/FdF.dir/libft/ft_isalnum.c.o"
@@ -67,8 +63,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/FdF.dir/libft/ft_tolower.c.o"
   "CMakeFiles/FdF.dir/libft/ft_toupper.c.o"
   "CMakeFiles/FdF.dir/libft/get_next_line.c.o"
-  "CMakeFiles/FdF.dir/main.c.o"
-  "CMakeFiles/FdF.dir/map.c.o"
   "CMakeFiles/FdF.dir/minilibx_macos/font.c.o"
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_init_loop.m.o"
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_int_str_to_wordtab.c.o"
@@ -77,10 +71,16 @@ file(REMOVE_RECURSE
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_rgb.c.o"
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_shaders.c.o"
   "CMakeFiles/FdF.dir/minilibx_macos/mlx_xpm.c.o"
+  "CMakeFiles/FdF.dir/coord.c.o"
+  "CMakeFiles/FdF.dir/draw_line.c.o"
+  "CMakeFiles/FdF.dir/figure_rotation.c.o"
+  "CMakeFiles/FdF.dir/figure_zoom.c.o"
+  "CMakeFiles/FdF.dir/main.c.o"
   "CMakeFiles/FdF.dir/parser.c.o"
+  "CMakeFiles/FdF.dir/map.c.o"
   "CMakeFiles/FdF.dir/utils.c.o"
-  "FdF"
   "FdF.pdb"
+  "FdF"
 )
 
 # Per-language clean rules from dependency scanning.

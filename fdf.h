@@ -68,9 +68,9 @@ typedef struct      t_data
 }                   s_data;
 
 
-int     plot_line_low(int start_x, int start_y, int end_x, int end_y, void *param);
-int     plot_line_high(int start_x, int start_y, int end_x, int end_y, void *param);
-int     plot_line(int start_x, int start_y, int end_x, int end_y, void *param);
+int     plot_line_low(t_line *line, void *param);
+int     plot_line_high(t_line *line, void *param);
+int     plot_line(t_line *line, void *param);
 s_point *create_point(int x, int y, int z);
 void	list_push_back(s_point **begin_list, int x, int y, int z);
 s_point *next_x_point(s_point *point);
@@ -88,8 +88,11 @@ int     check_map(char *file_name, s_data *data);
 void    parser(char *file,s_data *data);
 int     check_maxyz(s_data *data);
 int     change_color(s_data *data);
-void init_line_y(t_line *line, int end_x, int start_x, int end_y, int start_y);
-void init_line_x(t_line *line, int end_x, int start_x, int end_y, int start_y);
+void init_line_y(t_line *line);
+void init_line_x(t_line *line);
+void start_end_x(t_line *line, int x, int y, void *param);
+void start_end_y(t_line *line, int x, int y, void *param);
+void start_end_change(t_line *line);
 
 
 

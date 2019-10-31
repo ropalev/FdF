@@ -1,4 +1,3 @@
-#include <fcntl.h>
 #include "fdf.h"
 
 int   mouse_action(int button, int x, int y, void *param)
