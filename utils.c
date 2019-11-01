@@ -1,36 +1,6 @@
 #include "fdf.h"
 
-void init_line_y(t_line *line)
-{
-	line->dx = line->end_x - line->start_x;
-	line->dy = line->end_y - line->start_y;
-	line->yi = 1;
-	if (line->dy < 0)
-	{
-		line->yi = -1;
-		line->dy = -line->dy;
-	}
-	line->D = 2 * line->dy - line->dx;
-	line->y = line->start_y;
-	line->x = line->start_x;
-}
-
-void init_line_x(t_line *line)
-{
-	line->dx = line->end_x - line->start_x;
-	line->dy = line->end_y - line->start_y;
-	line->xi = 1;
-	if (line->dx < 0)
-	{
-		line->xi = -1;
-		line->dx = -line->dx;
-	}
-	line->D = 2 * line->dx - line->dy;
-	line->y = line->start_y;
-	line->x = line->start_x;
-}
-
-void start_end_x(t_line *line, int x, int y, void *param)
+void line_init(t_line *line, int x, int y, void *param)
 {
 	s_data *data;
 	s_point ***points;
@@ -38,25 +8,41 @@ void start_end_x(t_line *line, int x, int y, void *param)
 	data = (s_data *)param;
 	points = data->matrix;
 
-	line->start_x = points[x][y]->x * data->par_scale + WINHEIGHT/2;
-	line->start_y = points[x][y]->y * data->par_scale + WINWIDTH/2;
-	line->end_x = points[x + 1][y]->x * data->par_scale + WINHEIGHT/2;
-	line->end_y = points[x + 1][y]->y * data->par_scale + WINWIDTH/2;
+	line->x = points[x][y]->x * data->par_scale + WINHEIGHT/2;
+	line->y = points[x][y]->y * data->par_scale + WINWIDTH/2;
 }
 
-void start_end_y(t_line *line, int x, int y, void *param)
+void init_low_line(t_her *perem, t_line *line1, t_line *line2)
 {
-	s_data *data;
-	s_point ***points;
-
-	data = (s_data *)param;
-	points = data->matrix;
-
-	line->start_x = points[x][y]->x * data->par_scale + WINHEIGHT/2;
-	line->start_y = points[x][y]->y * data->par_scale + WINWIDTH/2;
-	line->end_x = points[x][y + 1]->x * data->par_scale + WINHEIGHT/2;
-	line->end_y = points[x][y + 1]->y * data->par_scale + WINWIDTH/2;
+	perem->dx = line2->x - line1->x;
+	perem->dy = line2->y - line1->y;
+	perem->yi = 1;
+	if (perem->dy < 0)
+	{
+		perem->yi = -1;
+		perem->dy = -perem->dy;
+	}
+	perem->D = 2 * perem->dy - perem->dx;
+	perem->y = line1->y;
+	perem->x = line1->x;
 }
+
+void init_high_line(t_her *perem, t_line *line1, t_line *line2)
+{
+	perem->dx = line2->x - line1->x;
+	perem->dy = line2->y - line1->y;
+	perem->xi = 1;
+	if (perem->dx < 0)
+	{
+		perem->xi = -1;
+		perem->dx = -perem->dx;
+	}
+	perem->D = 2 * perem->dx - perem->dy;
+	perem->y = line1->y;
+	perem->x = line1->x;
+}
+
+/*
 
 void start_end_change(t_line *line)
 {
@@ -69,3 +55,5 @@ void start_end_change(t_line *line)
 	line->start_y = line->end_y;
 	line->end_y = tmp;
 }
+
+*/

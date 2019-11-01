@@ -27,7 +27,7 @@ int     check_map(char *file_name, s_data *data)
     int     len;
     int     fd;
     char    *line;
-
+    int     res;
     data->height = 0;
     data->width = 0;
     fd = open(file_name, O_RDONLY);
@@ -43,8 +43,8 @@ int     check_map(char *file_name, s_data *data)
             printf("error");
         data->height += 1;
     }
-    data->par_scale = (WINHEIGHT < WINWIDTH ? WINHEIGHT : WINWIDTH) /
-            (data->height > data->width ? data->height : data->width);
+	data->par_scale = (WINHEIGHT < WINWIDTH ? WINHEIGHT : WINWIDTH) /
+					  (data->height > data->width ? data->height : data->width);
 }
 
 void    parser(char *file,s_data *data)
@@ -61,15 +61,12 @@ void    parser(char *file,s_data *data)
         s = ft_strsplit(line, ' ');
         x = 0;
         while (*s) {
-            data->matrix[y][x] = create_point(x - (data->width % 2 ?
-            		data->width -1 : data->width)/2 , y -
-					(data->height % 2 ? data->height/2 - 1 : data->height)/2,
-					ft_atoi
-            (*s));
+            data->matrix[y][x] = create_point(x - data->width/2, y - data->height/2, ft_atoi(*s));
             s++;
             x++;
         }
         y++;
     }
+    data->color = 0xA1A1A1;
     close(fd);
-}
+};

@@ -22,6 +22,7 @@ int     figure_zoom(double scale, void *param)
         {
             points[x][y]->x *= scale;
             points[x][y]->y *= scale;
+			points[x][y]->z *= scale;
             y++;
         }
         x++;
@@ -48,7 +49,6 @@ int     figure_height(double scale, void *param)
         while (y < data->width)
         {
             points[x][y]->z += scale;
-            printf("%f", points[x][y]->z);
             y++;
         }
         x++;

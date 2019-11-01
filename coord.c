@@ -3,6 +3,7 @@
 //
 
 #include "fdf.h"
+
 s_point *create_point(int x, int y, int z)
 {
     s_point *point;
@@ -13,5 +14,4 @@ s_point *create_point(int x, int y, int z)
     point->z = z;
     point->color = 0xFFFFFF;
     return (point);
-    printf("0-+%d0-12\n", 10);
 }
