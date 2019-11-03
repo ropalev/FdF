@@ -6,7 +6,7 @@
 /*   By: lvania <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 22:56:51 by lvania            #+#    #+#             */
-/*   Updated: 2019/11/01 23:01:26 by lvania           ###   ########.fr       */
+/*   Updated: 2019/11/02 17:52:38 by lvania           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,43 @@
 
 void	map_draw(void *param)
 {
-	int		x;
-	int		y;
-	s_data	*data;
+	t_line	line3;
+	t_data	*data;
 	t_line	line1;
 	t_line	line2;
 
-	data = (s_data *)param;
-	x = -1;
-	while (++x < data->height)
+	data = (t_data *)param;
+	line3.x = -1;
+	while (++(line3.x) < data->height)
 	{
-		y = -1;
-		while (++y < data->width)
+		line3.y = -1;
+		while (++(line3.y) < data->width)
 		{
-			line_init(&line1, x, y, param);
-			if (x + 1 < data->height)
+			line_init(&line1, line3.x, line3.y, param);
+			if ((line3.x) + 1 < data->height)
 			{
-				line_init(&line2, x + 1, y, param);
-				plotLine(&line1, &line2, param);
+				line_init(&line2, line3.x + 1, line3.y, param);
+				plot_line(&line1, &line2, param);
 			}
-			if (y + 1 < data->width)
+			if ((line3.y) + 1 < data->width)
 			{
-				line_init(&line2, x, y + 1, param);
-				plotLine(&line1, &line2, param);
+				line_init(&line2, line3.x, line3.y + 1, param);
+				plot_line(&line1, &line2, param);
 			}
 		}
 	}
 }
 
-void map_iso(void *param)
+void	map_iso(void *param)
 {
 	int		x;
 	int		y;
-	s_data	*data;
-	s_point	***points;
+	t_data	*data;
+	t_point	***points;
 
-	data = (s_data *)param;;
+	data = (t_data *)param;
 	points = data->matrix;
-	x= 0;
+	x = 0;
 	while (x < data->height)
 	{
 		y = 0;
@@ -59,7 +58,7 @@ void map_iso(void *param)
 		{
 			x_rotation(points[x][y], -0.923599);
 			y_rotation(points[x][y], -0.46373398);
-			z_rotation(points[x][y],0.46);
+			z_rotation(points[x][y], 0.46);
 			y++;
 		}
 		x++;

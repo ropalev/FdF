@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		x_rotation(s_point *point, double angle)
+int		x_rotation(t_point *point, double angle)
 {
 	double	y;
 	double	z;
@@ -24,7 +24,7 @@ int		x_rotation(s_point *point, double angle)
 	return (0);
 }
 
-int		y_rotation(s_point *point, double angle)
+int		y_rotation(t_point *point, double angle)
 {
 	double	x;
 	double	z;
@@ -36,7 +36,7 @@ int		y_rotation(s_point *point, double angle)
 	return (0);
 }
 
-int		z_rotation(s_point *point, double angle)
+int		z_rotation(t_point *point, double angle)
 {
 	double	y;
 	double	x;
@@ -52,10 +52,10 @@ int		figure_rotation(char axis, double angle, void *param)
 {
 	int		x;
 	int		y;
-	s_data	*data;
-	s_point	***points;
+	t_data	*data;
+	t_point	***points;
 
-	data = (s_data *)param;
+	data = (t_data *)param;
 	points = data->matrix;
 	x = -1;
 	while (++x < data->height)

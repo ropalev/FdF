@@ -1,18 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lvania <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/02 17:48:36 by lvania            #+#    #+#             */
+/*   Updated: 2019/11/02 18:06:20 by lvania           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void line_init(t_line *line, int x, int y, void *param)
+void	line_init(t_line *line, int x, int y, void *param)
 {
-	s_data *data;
-	s_point ***points;
+	t_data	*data;
+	t_point	***points;
 
-	data = (s_data *)param;
+	data = (t_data *)param;
 	points = data->matrix;
-
-	line->x = points[x][y]->x * data->par_scale + WINHEIGHT/2;
-	line->y = points[x][y]->y * data->par_scale + WINWIDTH/2;
+	line->x = points[x][y]->x * data->par_scale + WINHEIGHT / 2;
+	line->y = points[x][y]->y * data->par_scale + WINWIDTH / 2;
 }
 
-void init_low_line(t_her *perem, t_line *line1, t_line *line2)
+void	init_low_line(t_her *perem, t_line *line1, t_line *line2)
 {
 	perem->dx = line2->x - line1->x;
 	perem->dy = line2->y - line1->y;
@@ -22,12 +33,12 @@ void init_low_line(t_her *perem, t_line *line1, t_line *line2)
 		perem->yi = -1;
 		perem->dy = -perem->dy;
 	}
-	perem->D = 2 * perem->dy - perem->dx;
+	perem->d = 2 * perem->dy - perem->dx;
 	perem->y = line1->y;
 	perem->x = line1->x;
 }
 
-void init_high_line(t_her *perem, t_line *line1, t_line *line2)
+void	init_high_line(t_her *perem, t_line *line1, t_line *line2)
 {
 	perem->dx = line2->x - line1->x;
 	perem->dy = line2->y - line1->y;
@@ -37,23 +48,7 @@ void init_high_line(t_her *perem, t_line *line1, t_line *line2)
 		perem->xi = -1;
 		perem->dx = -perem->dx;
 	}
-	perem->D = 2 * perem->dx - perem->dy;
+	perem->d = 2 * perem->dx - perem->dy;
 	perem->y = line1->y;
 	perem->x = line1->x;
 }
-
-/*
-
-void start_end_change(t_line *line)
-{
-	int tmp;
-
-	tmp = line->start_x;
-	line->start_x = line->end_x;
-	line->end_x = tmp;
-	tmp = line->start_y;
-	line->start_y = line->end_y;
-	line->end_y = tmp;
-}
-
-*/
